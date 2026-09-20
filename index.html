@@ -90,12 +90,12 @@
         position: relative;
         overflow: hidden;
         display: grid;
-        grid-template-columns: minmax(0, 1.15fr) minmax(280px, .85fr);
-        min-height: 650px;
+        grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+        min-height: 640px;
         color: var(--white);
         background:
-          radial-gradient(circle at 76% 35%, rgba(0, 201, 216, .35), transparent 19%),
-          linear-gradient(125deg, var(--navy) 0 50%, var(--deep) 50% 100%);
+          radial-gradient(circle at 78% 30%, rgba(0, 201, 216, .32), transparent 18%),
+          linear-gradient(130deg, var(--navy) 0 50%, var(--deep) 50% 100%);
       }
       .hero::before {
         content: "";
@@ -111,31 +111,30 @@
       }
       .hero-copy {
         align-self: center;
-        padding: clamp(4rem, 8vw, 8rem) clamp(1.2rem, 6vw, 6.5rem);
+        padding: clamp(3rem, 7vw, 7rem) clamp(1.2rem, 6vw, 6.5rem);
       }
-      .kicker, .eyebrow {
+      .hero-copy .kicker {
         margin: 0 0 1rem;
         color: var(--yellow);
+        font-size: .86rem;
         font-weight: 900;
-        letter-spacing: .13em;
+        letter-spacing: .2em;
         text-transform: uppercase;
       }
       h1, h2, h3 {
         margin-top: 0;
-        line-height: .98;
+        line-height: .96;
         text-transform: uppercase;
       }
       h1 {
-        max-width: 780px;
-        margin-bottom: 1.3rem;
-        font-size: clamp(3.2rem, 8vw, 7.5rem);
-        letter-spacing: -.065em;
+        margin-bottom: 1.2rem;
+        font-size: clamp(3.2rem, 8vw, 7rem);
+        letter-spacing: -.07em;
       }
-      h1 span { color: var(--aqua); }
-      .hero-copy > p:not(.kicker) {
-        max-width: 680px;
+      .hero-copy p:not(.kicker) {
+        max-width: 620px;
         margin: 0 0 2rem;
-        font-size: clamp(1.1rem, 2vw, 1.35rem);
+        font-size: clamp(1.08rem, 2vw, 1.35rem);
       }
       .actions {
         display: flex;
@@ -144,7 +143,7 @@
       }
       .button {
         display: inline-block;
-        padding: .9rem 1.25rem;
+        padding: .9rem 1.2rem;
         color: var(--ink);
         background: var(--yellow);
         border: 3px solid var(--ink);
@@ -152,7 +151,6 @@
         font-weight: 900;
         text-decoration: none;
         text-transform: uppercase;
-        transition: transform .15s ease;
       }
       .button.secondary {
         color: var(--white);
@@ -164,7 +162,7 @@
       .hero-panel {
         display: grid;
         place-items: center;
-        padding: clamp(3rem, 6vw, 6rem) clamp(1.2rem, 5vw, 5rem);
+        padding: clamp(2.5rem, 6vw, 6rem) clamp(1.2rem, 5vw, 4rem);
       }
       .comic-cover {
         width: min(360px, 78vw);
@@ -181,13 +179,21 @@
         max-width: 760px;
         margin-bottom: 2.5rem;
       }
-      .section-heading .eyebrow { color: var(--blue); }
+      .eyebrow {
+        margin: 0 0 1rem;
+        color: var(--blue);
+        font-weight: 900;
+        letter-spacing: .14em;
+        text-transform: uppercase;
+      }
       h2 {
         margin-bottom: 1rem;
-        font-size: clamp(2.5rem, 6vw, 5.5rem);
+        font-size: clamp(2.3rem, 5vw, 4.6rem);
         letter-spacing: -.055em;
       }
-      .lead { font-size: 1.15rem; }
+      .lead {
+        font-size: 1.1rem;
+      }
       .feature-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -213,8 +219,8 @@
         font-weight: 900;
       }
       h3 {
-        margin-bottom: .75rem;
-        font-size: 1.55rem;
+        margin-bottom: .7rem;
+        font-size: 1.5rem;
       }
 
       .dive-man {
@@ -242,23 +248,80 @@
         width: 62%;
         max-width: 300px;
         object-fit: contain;
-        object-position: center;
       }
       .dive-man .eyebrow { color: var(--yellow); }
       .dive-man p { max-width: 650px; font-size: 1.15rem; }
 
-      .contact {
-        color: var(--white);
-        background: var(--navy);
+      .pricing-wrap {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.2rem;
+      }
+      .pricing-card {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.5rem;
+        background: var(--white);
+        border: 3px solid var(--ink);
+        box-shadow: 8px 8px 0 var(--aqua);
+      }
+      .pricing-card.featured {
+        background: #eefbfd;
+        box-shadow: 8px 8px 0 var(--yellow);
+      }
+      .price {
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 900;
+        color: var(--navy);
+        line-height: 1;
+      }
+      .pricing-card .button {
+        margin-top: auto;
         text-align: center;
       }
-      .contact .section-heading { margin-inline: auto; }
-      .contact .eyebrow { color: var(--aqua); }
-      .contact h2 { font-size: clamp(2.4rem, 5vw, 4.6rem); }
-      .contact > p {
-        max-width: 760px;
-        margin: 0 auto 2rem;
-        font-size: 1.1rem;
+
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.2rem;
+        margin-top: 2rem;
+      }
+      .step {
+        padding: 1.5rem;
+        background: #fff;
+        border: 3px solid var(--ink);
+        box-shadow: 7px 7px 0 var(--yellow);
+      }
+      .step-number {
+        display: inline-block;
+        margin-bottom: .8rem;
+        padding: .25rem .6rem;
+        background: var(--navy);
+        color: var(--white);
+        font-weight: 900;
+      }
+      .shop-section {
+        color: var(--white);
+        background: var(--navy);
+      }
+      .shop-section .section-heading {
+        margin-inline: auto;
+        text-align: center;
+      }
+      .shop-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+      .shop-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 2rem;
       }
       footer {
         padding: 1.5rem clamp(1.2rem, 6vw, 6.5rem);
@@ -267,20 +330,16 @@
         text-align: center;
       }
 
-      @media (max-width: 850px) {
-        .site-header { align-items: flex-start; }
-        nav { gap: .8rem; font-size: .9rem; }
+      @media (max-width: 900px) {
         .hero, .dive-man { grid-template-columns: 1fr; }
         .hero { min-height: auto; }
         .hero-copy { padding-bottom: 1rem; }
         .hero-panel { padding-top: 2rem; padding-bottom: 5rem; }
-        .feature-grid { grid-template-columns: 1fr; }
-        .character-badge { min-height: 280px; }
+        .feature-grid, .pricing-wrap, .steps { grid-template-columns: 1fr; }
       }
       @media (max-width: 560px) {
         .site-header { position: static; display: block; }
         nav { margin-top: 1rem; justify-content: space-between; }
-        h1 { font-size: clamp(3.2rem, 20vw, 5rem); }
         .diveman-logo { width: 70%; max-width: 260px; }
       }
     </style>
@@ -294,8 +353,7 @@
         <span>UNDERWATER ADVENTURES</span>
       </a>
       <nav aria-label="Main navigation">
-        <a href="#comics">Comics</a>
-        <a href="#dive-man">Dive Man</a>
+        <a href="#top">Home</a>
         <a href="#contact">Contact &amp; Printing</a>
         <a href="#dema">DEMA Special</a>
       </nav>
@@ -304,12 +362,11 @@
     <main id="main">
       <section class="hero" id="top">
         <div class="hero-copy">
-          <p class="kicker">Adventure • Training • Ocean Safety</p>
-          <h1>Dive.<br>Explore.<br><span>Learn.</span></h1>
-          <p>Original comic-book adventures that make scuba skills, ocean knowledge, and safe diving unforgettable.</p>
+          <p class="kicker">Limited Special Edition</p>
+          <h1>Buy Your<br>Dive Man<br>Book Today!</h1>
+          <p>An original underwater adventure packed with dive education, ocean discovery, and classic comic-book energy. A great Christmas gift for divers, students, and ocean lovers.</p>
           <div class="actions">
-            <a class="button" href="#comics">Explore the comics</a>
-            <a class="button secondary" href="#dema">Buy the DEMA Special</a>
+            <a class="button" href="#dema">Choose your package</a>
           </div>
         </div>
         <div class="hero-panel">
@@ -317,29 +374,65 @@
         </div>
       </section>
 
-      <section class="section" id="comics">
+      <section class="section" id="dema">
         <div class="section-heading">
-          <p class="eyebrow">Inside Oceanic Comics</p>
-          <h2>The ocean is our classroom.</h2>
-          <p class="lead">Made for new divers, experienced adventurers, dive instructors, and shops that want training to feel exciting and memorable.</p>
+          <p class="eyebrow">DEMA Special Pricing</p>
+          <h2>Give the gift of adventure.</h2>
+          <p class="lead">Choose your package and send your order. We’ll confirm availability and delivery or pickup details before payment.</p>
         </div>
-        <div class="feature-grid">
-          <article class="feature-card">
-            <span class="number">1</span>
-            <h3>Comic Adventures</h3>
-            <p>Follow original heroes into wrecks, reefs, deep water, and the unexpected situations every diver trains to handle.</p>
+
+        <div class="pricing-wrap">
+          <article class="pricing-card">
+            <h3>One Book</h3>
+            <div class="product-title">Dive Man Special Edition</div>
+            <div class="price">$9.95</div>
+            <p>One copy for your favorite diver—or for your own comic collection.</p>
+            <a class="button" href="#contact">Order 1 Book</a>
           </article>
-          <article class="feature-card">
-            <span class="number">2</span>
-            <h3>Real Dive Skills</h3>
-            <p>Buoyancy, air sharing, hand signals, physics, equipment, and safety—woven into stories readers remember.</p>
+
+          <article class="pricing-card featured">
+            <h3>Great Gift Pack</h3>
+            <div class="product-title">Three-Book Package</div>
+            <div class="price">$20</div>
+            <p>Keep one and give two—an easy Christmas gift for dive buddies and students.</p>
+            <a class="button" href="#contact">Order 3 Books</a>
           </article>
-          <article class="feature-card">
-            <span class="number">3</span>
-            <h3>Custom Editions</h3>
-            <p>Special editions for dive shops, training programs, events, and instructors who want to become Dive Man or Dive Woman.</p>
+
+          <article class="pricing-card">
+            <h3>Best Value</h3>
+            <div class="product-title">Five-Book Package</div>
+            <div class="price">$30</div>
+            <p>Five copies for family, dive friends, instructors, or your favorite new divers.</p>
+            <a class="button" href="#contact">Order 5 Books</a>
           </article>
         </div>
+
+        <div class="section-heading" style="margin-top:3.5rem;">
+          <p class="eyebrow">Simple Ordering</p>
+          <h2>Order. Confirm. Dive in.</h2>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <h3>Choose</h3>
+            <p>Select one, three, or five books and tap the order button.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <h3>Confirm</h3>
+            <p>We’ll confirm availability and any delivery or pickup details by email.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <h3>Pay</h3>
+            <p>Pay with Venmo, or arrange cash payment for an in-person purchase.</p>
+          </div>
+        </div>
+
+        <p style="max-width:880px; margin:2rem auto 0; font-size:1.05rem; text-align:center;">
+          Shipping, when needed, will be confirmed before payment. Questions? Email <a href="mailto:Rick@olypen.com" style="color:var(--blue); font-weight:700;">Rick@olypen.com</a>.
+        </p>
       </section>
 
       <section class="section dive-man" id="dive-man">
@@ -353,20 +446,20 @@
         </div>
       </section>
 
-      <section class="section contact" id="contact">
+      <section class="section shop-section" id="contact">
         <div class="section-heading">
-          <p class="eyebrow">For dive shops &amp; instructors</p>
-          <h2>Put your dive community in the story.</h2>
+          <p class="eyebrow">Dive Shops &amp; Instructors</p>
+          <h2>Want your own edition?</h2>
         </div>
-        <p>Order the DEMA Special Edition, request bulk quantities, or ask about a custom comic featuring your dive shop, instructors, programs, and community.</p>
-        <div class="actions" style="justify-content:center; margin-top:1rem;">
-          <a class="button" href="#dema">Buy the DEMA Special</a>
-          <a class="button secondary" href="#top">Request custom printing</a>
+        <p class="lead" style="text-align:center; max-width:760px; margin:0 auto;">Ask about bulk printing, personalized instructor covers, and custom dive-shop editions.</p>
+        <div class="shop-links">
+          <a class="button" href="#contact">Request custom printing</a>
+          <a class="button secondary" href="#top">Return home</a>
         </div>
       </section>
     </main>
 
-    <footer id="dema">
+    <footer>
       <p>&copy; 2026 Oceanic Comics. Dive Man and related characters are original creations of Richard Hert.</p>
     </footer>
   </body>
